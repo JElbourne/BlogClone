@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+  resources :comments, except: [:new, :create]
   resources :posts
+  post "/post/:id/comments", to: "comments#create", as: "create_comment"
+  
   devise_for :users
   
   mount StripeEvent::Engine, at: '/stripe/hook'

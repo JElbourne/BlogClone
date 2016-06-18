@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   validates :name, uniqueness: true
 
   has_many :charges
+  has_many :comments
 
   def subscribed?
     stripe_subscription_id?

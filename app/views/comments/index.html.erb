@@ -1,0 +1,11 @@
+<% content_for :page_title do %>
+  My Comments
+<% end %>
+
+<% @comments.each do |comment| %>
+  <h3><%= link_to comment.post.title.titleize, post_path(comment.post) %></h3>
+  <p><%= simple_format(comment.body) %></p>
+  <%= link_to "Edit", edit_comment_path(comment), class: "btn btn-default btn-sm" %>
+  <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-sm" %>
+  <hr />
+<% end %>

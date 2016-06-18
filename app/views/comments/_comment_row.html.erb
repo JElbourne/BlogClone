@@ -1,0 +1,7 @@
+<h3><%= comment.user.name.titleize %></h3>
+<p><%= simple_format(comment.body) %></p>
+<% if user_signed_in? %>
+  <%= link_to "Edit", edit_comment_path(comment), class: "btn btn-default btn-sm" if current_user.id == comment.user_id %>
+  <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-sm" if current_user.id == comment.user_id %>
+<% end %>
+<hr />

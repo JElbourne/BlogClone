@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160618170144) do
+ActiveRecord::Schema.define(version: 20160618195022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(version: 20160618170144) do
   end
 
   add_index "charges", ["stripe_charge_id"], name: "index_charges_on_stripe_charge_id", unique: true, using: :btree
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "body"
+    t.integer  "post_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
