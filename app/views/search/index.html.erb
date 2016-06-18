@@ -1,0 +1,7 @@
+<% content_for :page_title do %>
+  Search Results
+<% end %>
+
+<% @posts.each do |post| %>
+ <%= render partial: "shared/post_row", locals: { post: post } %>
+<% end %>

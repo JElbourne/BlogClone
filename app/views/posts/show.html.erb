@@ -1,0 +1,8 @@
+<% content_for :page_title do %>
+  <%= @post.title %>
+<% end %>
+
+<p><%= simple_format(@post.body) %></p>
+
+<%= link_to 'Edit', edit_post_path(@post), class: "btn btn-primary" if current_user_admin? %>
+<%= link_to 'Back', posts_path, class: "btn btn-default" %>

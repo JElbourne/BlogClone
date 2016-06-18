@@ -1,0 +1,5 @@
+<h2><%= post.title %></h2>
+<p><%= truncate(post.body, length: 500) %></p>
+<p><%= link_to 'Read More...', post %></p>
+<%= link_to 'Edit', edit_post_path(post), class: "btn btn-default" if current_user_admin? %>
+<%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" if current_user_admin? %>
